@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>怎么获取div的滚动位置</title>
+</head>
+
+<body>
+    <div id="parent">
+        <div id="children"></div>
+    </div>
+    <div id="update">点击按钮获取div的滚动距离</div>
+    <br />
+    <button onclick="update()">获取"parent"的滚动位置</button>
+</body>
+
+<script>
+    function update() {
+        const parent = document.querySelector("#parent")
+        const howMuchScrolled = {
+            // parent.scrllTop 可以获取 div 元素向下滚动了多少
+            top: parent.scrollTop,
+            // parent.scrllLeft 可以获取 div 元素向右滚动了多少
+            left: parent.scrollLeft
+        }
+        document.querySelector("#update").textContent = `元素parent向下滚动了：${howMuchScrolled.top}px；向右滚动了：${howMuchScrolled.left}px`
+    }
+</script>
+
+<style>
+    #parent {
+        width: 100px;
+        height: 100px;
+        overflow: auto;
+    }
+
+    #children {
+        width: 200px;
+        height: 200px;
+    }
+</style>
+
+</html>
